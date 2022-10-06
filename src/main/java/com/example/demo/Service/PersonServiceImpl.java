@@ -34,6 +34,7 @@ public class PersonServiceImpl implements PersonServiceI{
 		        .bodyToFlux(Person.class);
 		
 		Flux<Person> allPersons = Flux.concat(persons1,persons2, persons3, persons4);
+		allPersons.subscribe(person->System.out.println(person.getLastname()+", "+person.getFirstname()+" tiene " + person.getAge()));
 		return allPersons;
 	}
 
